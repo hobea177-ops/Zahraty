@@ -3,26 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>إلى ملكتي زهراء 👑</title>
+  <title>الملكة زهراء 👑</title>
   
   <!-- الخطوط الملكية -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;800&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* ==========================================
-       التنسيقات الأساسية والمتغيرات الفاخرة
-    ========================================== */
     :root {
-      --gold-primary: #f39c12;
-      --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-      --gold-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
-      --pink-luxury: #ff2a6d;
-      --pink-glow: rgba(255, 42, 109, 0.5);
-      --bg-dark: #070406;
-      --glass-bg: rgba(18, 10, 15, 0.55);
-      --glass-border: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(212, 175, 55, 0.3), rgba(255, 255, 255, 0.05));
+      --gold-royal: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+      --gold-pure: #d4af37;
+      --gold-glow: rgba(212, 175, 55, 0.5);
+      --ruby-dark: #1a030b;
+      --glass-dark: rgba(12, 5, 9, 0.75);
+      --glass-border: rgba(212, 175, 55, 0.35);
     }
 
     * {
@@ -34,7 +29,7 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: #030104;
       color: #fff;
       min-height: 100vh;
       display: flex;
@@ -44,19 +39,18 @@
       position: relative;
     }
 
-    /* خلفية متدرجة عميقة */
-    .bg-canvas {
+    /* خلفية الفخامة التفاعلية */
+    .bg-gradient {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 50% 30%, #2b0617 0%, #0d0308 60%, #040103 100%);
+      background: radial-gradient(circle at 50% 20%, #2e0817 0%, #0d0207 50%, #020003 100%);
       z-index: -2;
     }
 
-    /* قماش المتحركات */
-    canvas#particles-canvas {
+    canvas#particles {
       position: fixed;
       top: 0;
       left: 0;
@@ -66,41 +60,28 @@
       z-index: -1;
     }
 
-    /* ==========================================
-       تأثير الزجاج الفاخر (Glassmorphic Engine)
-    ========================================== */
-    .glass-panel {
-      background: var(--glass-bg);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      border-radius: 28px;
-      border: 1px solid rgba(212, 175, 55, 0.25);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
-                  inset 0 1px 0 rgba(255, 255, 255, 0.2),
-                  inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    /* التأثير الزجاجي الفاخر */
+    .luxury-glass {
+      background: var(--glass-dark);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-radius: 30px;
+      border: 1.5px solid var(--glass-border);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 
+                  inset 0 1px 1px rgba(255, 245, 183, 0.3),
+                  0 0 30px rgba(212, 175, 55, 0.15);
       position: relative;
-      overflow: hidden;
     }
 
-    .glass-panel::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-      transition: 0.8s;
-      pointer-events: none;
+    /* النص الذهبي المضيء */
+    .gold-text {
+      background: var(--gold-royal);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
     }
 
-    .glass-panel:hover::before {
-      left: 100%;
-    }
-
-    /* ==========================================
-       الشاشات والانتقالات
-    ========================================== */
+    /* الشاشات */
     .screen {
       position: fixed;
       top: 0;
@@ -112,627 +93,469 @@
       justify-content: center;
       align-items: center;
       z-index: 100;
-      transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       padding: 20px;
     }
 
     .screen-hidden {
       opacity: 0;
       visibility: hidden;
-      transform: scale(1.1) translateY(-20px);
+      transform: scale(0.95);
       pointer-events: none;
     }
 
-    /* ==========================================
-       1. شاشة كلمة المرور الفاخرة
-    ========================================== */
-    .auth-box {
+    /* 1. قفل المملكة السري */
+    .auth-card {
       width: 100%;
-      max-width: 420px;
-      padding: 45px 35px;
+      max-width: 400px;
+      padding: 50px 35px;
       text-align: center;
     }
 
-    .crown-icon {
-      font-size: 3.5rem;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .crown-glow {
+      font-size: 4rem;
       margin-bottom: 15px;
-      filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));
-      animation: crownPulse 3s infinite ease-in-out;
+      filter: drop-shadow(0 0 20px var(--gold-pure));
+      animation: crownFloat 3s infinite ease-in-out;
     }
 
-    @keyframes crownPulse {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-8px) scale(1.05); }
+    @keyframes crownFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
-    .auth-box h2 {
+    .auth-card h2 {
       font-family: 'Aref Ruqaa', serif;
-      font-size: 2.2rem;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 25px;
-    }
-
-    .input-wrapper {
-      position: relative;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
     }
 
     .pass-input {
       width: 100%;
       padding: 16px 20px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1.5px solid rgba(212, 175, 55, 0.3);
-      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1.5px solid var(--gold-pure);
+      border-radius: 50px;
       color: #fff;
       font-size: 1.2rem;
       text-align: center;
-      letter-spacing: 2px;
       outline: none;
-      transition: all 0.4s ease;
+      transition: all 0.4s;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
     }
 
     .pass-input:focus {
-      border-color: var(--pink-luxury);
-      box-shadow: 0 0 20px var(--pink-glow), inset 0 0 10px rgba(255, 42, 109, 0.2);
+      box-shadow: 0 0 25px var(--gold-glow), inset 0 0 15px rgba(212, 175, 55, 0.3);
     }
 
-    .error-msg {
-      color: #ff4757;
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-      min-height: 24px;
-      transition: 0.3s;
-    }
-
-    .gold-btn {
-      background: var(--gold-gradient);
-      color: #0d0509;
-      font-size: 1.2rem;
-      font-weight: 800;
-      padding: 15px 40px;
+    .luxury-btn {
+      background: var(--gold-royal);
+      color: #0d0307;
+      font-size: 1.25rem;
+      font-weight: 900;
+      padding: 16px 45px;
       border: none;
       border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 10px 25px rgba(170, 119, 28, 0.4);
-      transition: all 0.4s ease;
+      margin-top: 25px;
       width: 100%;
+      box-shadow: 0 10px 30px rgba(179, 135, 40, 0.4);
+      transition: all 0.4s ease;
     }
 
-    .gold-btn:hover {
+    .luxury-btn:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(212, 175, 55, 0.7);
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.7);
     }
 
-    /* ==========================================
-       2. شاشة الترحيب الملكية
-    ========================================== */
+    /* 2. شاشة الترحيب الملكية */
     .welcome-title {
       font-family: 'Aref Ruqaa', serif;
-      font-size: 3.8rem;
-      background: linear-gradient(135deg, #ffffff 0%, #ffb6c1 50%, #d4af37 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      font-size: 3.5rem;
       text-align: center;
-      filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.3));
+      margin-bottom: 15px;
     }
 
     .welcome-sub {
-      color: #e0e0e0;
       font-size: 1.3rem;
-      margin-bottom: 45px;
+      color: #e0d0c0;
+      margin-bottom: 40px;
       text-align: center;
-      font-weight: 300;
     }
 
-    .queen-trigger-btn {
-      background: linear-gradient(135deg, #e91e63, #880e4f);
-      border: 2px solid var(--gold-primary);
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: 20px 55px;
-      border-radius: 60px;
-      cursor: pointer;
-      box-shadow: 0 15px 40px var(--pink-glow), 0 0 20px rgba(212, 175, 55, 0.5);
-      transition: all 0.5s ease;
-    }
-
-    .queen-trigger-btn:hover {
-      transform: translateY(-6px) scale(1.06);
-      background: var(--gold-gradient);
-      color: #000;
-      box-shadow: 0 20px 50px rgba(212, 175, 55, 0.8);
-    }
-
-    /* ==========================================
-       3. الواجهة الرئيسية والمحتوى
-    ========================================== */
-    #main-wrapper {
+    /* 3. الواجهة الرئيسية */
+    #main-realm {
       width: 100%;
-      max-width: 950px;
-      padding: 50px 20px;
+      max-width: 900px;
+      padding: 40px 20px 100px;
       display: none;
       flex-direction: column;
       align-items: center;
       z-index: 10;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1.2s cubic-bezier(0.19, 1, 0.22, 1);
     }
 
-    #main-wrapper.visible {
+    #main-realm.active {
       display: flex;
-      opacity: 1;
-      transform: translateY(0);
     }
 
-    .header-title {
+    .realm-title {
       font-family: 'Aref Ruqaa', serif;
-      font-size: 3rem;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 35px;
-      text-shadow: var(--gold-shadow);
+      font-size: 3.2rem;
+      margin-bottom: 40px;
     }
 
-    /* ==========================================
-       مشغل الأسطوانة الملكي (Vinyl Player)
-    ========================================== */
-    .player-card {
+    /* مشغل الأسطوانة */
+    .player-deck {
       width: 100%;
-      max-width: 480px;
-      padding: 45px 30px;
+      max-width: 450px;
+      padding: 40px 25px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
 
-    .turntable-deck {
+    .vinyl-stage {
       position: relative;
-      width: 300px;
-      height: 300px;
+      width: 290px;
+      height: 290px;
       display: flex;
       justify-content: center;
       align-items: center;
       margin-bottom: 35px;
     }
 
-    /* الأسطوانة */
-    .vinyl-record {
-      width: 280px;
-      height: 280px;
+    .vinyl-disc {
+      width: 270px;
+      height: 270px;
       border-radius: 50%;
-      background: repeating-radial-gradient(
-        #0d0d0d,
-        #0d0d0d 3px,
-        #1a1a1a 4px,
-        #0d0d0d 5px
-      );
-      box-shadow: 0 0 35px rgba(0, 0, 0, 0.9), 0 0 0 8px rgba(255, 255, 255, 0.03);
+      background: repeating-radial-gradient(#111, #111 3px, #1a1a1a 4px, #111 5px);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 0 6px rgba(212, 175, 55, 0.2);
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: transform 0.8s ease;
-      animation: spinVinyl 3.5s linear infinite paused;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: spinRecord 4s linear infinite paused;
     }
 
-    .vinyl-record.spinning {
+    .vinyl-disc.spinning {
       animation-play-state: running;
     }
 
-    @keyframes spinVinyl {
+    @keyframes spinRecord {
       100% { transform: rotate(360deg); }
     }
 
-    .vinyl-center {
-      width: 100px;
-      height: 100px;
+    .vinyl-core {
+      width: 95px;
+      height: 95px;
       border-radius: 50%;
-      background: radial-gradient(circle, #b71c1c, #4a0010);
-      border: 4px solid #d4af37;
+      background: radial-gradient(circle, #800a22, #33000b);
+      border: 3px solid var(--gold-pure);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+      box-shadow: inset 0 0 10px #000;
     }
 
-    .vinyl-center span {
+    .vinyl-core span {
       font-family: 'Aref Ruqaa', serif;
       color: #fff;
-      font-size: 1.3rem;
-      font-weight: bold;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+      font-size: 1.2rem;
     }
 
-    .center-spindle {
-      width: 14px;
-      height: 14px;
-      background: #e0e0e0;
-      border-radius: 50%;
-      margin-top: 5px;
-      border: 2px solid #aa771c;
-      box-shadow: 0 0 5px rgba(0,0,0,0.8);
-    }
-
-    /* عصى التردد (Tonearm) */
-    .tonearm-assembly {
+    /* عصا الأسطوانة الدقيقة */
+    .tonearm-box {
       position: absolute;
-      top: -15px;
-      left: 35px;
-      width: 90px;
-      height: 180px;
+      top: -10px;
+      left: 20px;
+      width: 80px;
+      height: 170px;
       pointer-events: none;
-      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
-      transform-origin: 30px 30px;
-      transform: rotate(-35deg);
-      z-index: 10;
+      z-index: 15;
+      transform-origin: 25px 25px;
+      transform: rotate(-32deg);
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .tonearm-assembly.active {
-      transform: rotate(0deg);
+    .tonearm-box.active {
+      transform: rotate(4deg); /* تستقر تماماً على الأسطوانة */
     }
 
-    .arm-base {
-      width: 55px;
-      height: 55px;
-      background: radial-gradient(circle, #fcf6ba, #aa771c);
+    .tonearm-base {
+      width: 50px;
+      height: 50px;
+      background: var(--gold-royal);
       border-radius: 50%;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.7);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
     }
 
-    .arm-stick {
-      width: 8px;
-      height: 145px;
-      background: linear-gradient(to right, #bf953f, #ffffff, #b38728);
+    .tonearm-arm {
+      width: 6px;
+      height: 135px;
+      background: linear-gradient(to right, #e6c875, #ffffff, #996e19);
       position: absolute;
-      top: 25px;
-      left: 23px;
-      border-radius: 4px;
-      box-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+      top: 20px;
+      left: 22px;
+      border-radius: 3px;
     }
 
-    .arm-headshell {
-      width: 20px;
-      height: 32px;
-      background: #1a1a1a;
-      border: 1.5px solid #d4af37;
+    .tonearm-head {
+      width: 18px;
+      height: 28px;
+      background: #222;
+      border: 1px solid var(--gold-pure);
       position: absolute;
-      bottom: -10px;
-      left: 17px;
-      border-radius: 4px;
+      bottom: -8px;
+      left: 16px;
+      border-radius: 3px;
     }
 
-    /* زر التحكم بالصوت */
-    .play-control-btn {
-      background: var(--gold-gradient);
-      color: #000;
-      border: none;
-      padding: 16px 45px;
-      font-size: 1.25rem;
-      font-weight: 800;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-      transition: all 0.4s ease;
-    }
-
-    .play-control-btn:hover {
-      transform: translateY(-3px) scale(1.04);
-      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.7);
-    }
-
-    /* ==========================================
-       معرض الصور الأربعة الزجاجي الفاخر
-    ========================================== */
-    .section-label {
+    /* معرض الصور */
+    .section-title {
       font-family: 'Aref Ruqaa', serif;
-      font-size: 2.4rem;
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 35px;
-      text-align: center;
+      font-size: 2.3rem;
+      margin-bottom: 30px;
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
       width: 100%;
     }
 
-    .photo-frame {
-      padding: 12px;
-      aspect-ratio: 3/4;
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+    }
+
+    .photo-card {
+      padding: 10px;
+      border-radius: 20px;
+      aspect-ratio: 4/5;
+      overflow: hidden;
       transition: all 0.5s ease;
-      position: relative;
     }
 
-    .photo-frame:hover {
-      transform: translateY(-10px) scale(1.02);
-      border-color: rgba(212, 175, 55, 0.6);
-      box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
+    .photo-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px var(--gold-glow);
     }
 
-    .photo-frame img {
+    .photo-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 18px;
+      border-radius: 14px;
       display: block;
     }
 
-    /* التغلب على مشكلة الصور المفقودة */
-    .img-fallback {
+    .photo-placeholder {
       width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 18px;
-      border: 1px dashed rgba(212, 175, 55, 0.4);
-      color: var(--gold-light);
-      text-align: center;
-      padding: 15px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px dashed var(--gold-pure);
+      border-radius: 14px;
+      color: var(--gold-pure);
     }
 
-    .img-fallback span {
-      font-size: 2rem;
-      margin-bottom: 8px;
-    }
-
-    /* ==========================================
-       أيقونة الشعر العائمة والنافذة الزجاجية
-    ========================================== */
-    .poem-floating-trigger {
+    /* زر الرسالة العائم والنافذة */
+    .floating-poem-btn {
       position: fixed;
-      bottom: 35px;
-      right: 35px;
+      bottom: 30px;
+      right: 30px;
       width: 65px;
       height: 65px;
-      background: var(--glass-bg);
-      backdrop-filter: blur(15px);
       border-radius: 50%;
+      background: var(--glass-dark);
+      border: 1.5px solid var(--gold-pure);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 2rem;
+      font-size: 1.8rem;
       cursor: pointer;
-      box-shadow: 0 10px 30px var(--pink-glow), 0 0 15px rgba(212, 175, 55, 0.4);
+      box-shadow: 0 10px 25px var(--gold-glow);
       z-index: 99;
-      border: 1.5px solid var(--gold-primary);
-      transition: all 0.4s ease;
-      animation: floatPulse 2.5s infinite ease-in-out;
+      transition: all 0.4s;
     }
 
-    @keyframes floatPulse {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50% { transform: translateY(-8px) scale(1.08); }
+    .floating-poem-btn:hover {
+      transform: scale(1.15) rotate(15deg);
     }
 
-    .poem-floating-trigger:hover {
-      transform: scale(1.15) rotate(10deg);
-      background: var(--gold-gradient);
-    }
-
-    .modal-overlay {
+    .modal-backdrop {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(4, 2, 5, 0.75);
-      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
       z-index: 1000;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.5s ease;
+      transition: all 0.4s;
     }
 
-    .modal-overlay.active {
+    .modal-backdrop.open {
       opacity: 1;
       visibility: visible;
     }
 
-    .poem-glass-modal {
+    .poem-box {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.8);
       width: 90%;
-      max-width: 520px;
-      padding: 45px 35px;
+      max-width: 500px;
+      padding: 40px 30px;
       text-align: center;
       z-index: 1001;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    .poem-glass-modal.active {
+    .poem-box.open {
       opacity: 1;
       visibility: visible;
       transform: translate(-50%, -50%) scale(1);
     }
 
-    .poem-content {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 1.7rem;
+    .poem-text {
+      font-family: 'Amiri', serif;
+      font-size: 1.6rem;
       line-height: 2.2;
       color: #fff;
-      white-space: pre-line;
-      text-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
-      margin-bottom: 30px;
-    }
-
-    .close-poem-btn {
-      background: transparent;
-      border: 1.5px solid var(--gold-primary);
-      color: var(--gold-light);
-      padding: 10px 35px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .close-poem-btn:hover {
-      background: var(--gold-gradient);
-      color: #000;
+      margin-bottom: 25px;
     }
   </style>
 </head>
 <body>
 
-  <!-- خلفية الجزيئات الحية -->
-  <div class="bg-canvas"></div>
-  <canvas id="particles-canvas"></canvas>
+  <div class="bg-gradient"></div>
+  <canvas id="particles"></canvas>
 
-  <!-- ==================== 1. شاشة الرمز السري ==================== -->
-  <div id="auth-screen" class="screen">
-    <div class="auth-box glass-panel">
-      <div class="crown-icon">👑</div>
-      <h2>مملكة زهراء</h2>
-      <div class="input-wrapper">
-        <input type="password" id="passcode" class="pass-input" placeholder="أدخلي الرمز السري">
-      </div>
-      <div id="error-message" class="error-msg"></div>
-      <button class="gold-btn" onclick="verifyPassword()">دخول للمملكة</button>
+  <!-- 1. شاشة الرمز السري -->
+  <div id="screen-auth" class="screen">
+    <div class="auth-card luxury-glass">
+      <div class="crown-glow">👑</div>
+      <h2 class="gold-text">مملكة زهراء</h2>
+      <input type="password" id="passInput" class="pass-input" placeholder="أدخلي كلمة السر">
+      <div id="errorText" style="color:#ff4757; margin-top:12px; font-size:0.9rem; min-height:20px;"></div>
+      <button class="luxury-btn" onclick="checkPassword()">دخول للمملكة</button>
     </div>
   </div>
 
-  <!-- ==================== 2. شاشة الترحيب ==================== -->
-  <div id="welcome-screen" class="screen screen-hidden">
-    <h1 class="welcome-title">أهلاً بكِ في عالمكِ الخاص</h1>
-    <p class="welcome-sub">صُمم هذا المكان خصيصاً لأجلكِ يا أجمَل أُميرة ❤️</p>
-    <button class="queen-trigger-btn" onclick="enterMainRealm()">اضغطي هنا ملكتي 👑</button>
+  <!-- 2. شاشة الترحيب -->
+  <div id="screen-welcome" class="screen screen-hidden">
+    <h1 class="welcome-title gold-text">أهلاً بكِ في عوالمكِ الفاخرة</h1>
+    <p class="welcome-sub">صُممت كل التفاصيل بعناية لأجلكِ يا ملكتي ❤️</p>
+    <button class="luxury-btn" style="width:auto; padding: 18px 60px;" onclick="startRealm()">افتحي المملكة 👑</button>
   </div>
 
-  <!-- ==================== 3. الواجهة الرئيسية ==================== -->
-  <div id="main-wrapper">
-    <h2 class="header-title">ملكتي زهراء ✨</h2>
+  <!-- 3. الواجهة الرئيسية -->
+  <div id="main-realm">
+    <h1 class="realm-title gold-text">ملكتي زهراء ✨</h1>
 
     <!-- مشغل الأسطوانة -->
-    <div class="player-card glass-panel">
-      <div class="turntable-deck">
-        <div class="tonearm-assembly" id="tonearm">
-          <div class="arm-base"></div>
-          <div class="arm-stick"></div>
-          <div class="arm-headshell"></div>
+    <div class="player-deck luxury-glass">
+      <div class="vinyl-stage">
+        <div class="tonearm-box" id="tonearm">
+          <div class="tonearm-base"></div>
+          <div class="tonearm-arm"></div>
+          <div class="tonearm-head"></div>
         </div>
-        <div class="vinyl-record" id="vinyl">
-          <div class="vinyl-center">
+        <div class="vinyl-disc" id="vinyl">
+          <div class="vinyl-core">
             <span>زهراء</span>
-            <div class="center-spindle"></div>
           </div>
         </div>
       </div>
 
-      <audio id="audio-player" src="song.mp3" loop></audio>
+      <!-- الصوت -->
+      <audio id="mainAudio" src="song.mp3" loop></audio>
 
-      <button class="play-control-btn" id="playBtn" onclick="toggleAudio()">
-        <span id="playIcon">▶</span> <span id="btnLabel">تشغيل الأغنية</span>
+      <!-- زر التشغيل -->
+      <button class="luxury-btn" id="playBtn" onclick="togglePlay()" style="width: auto; padding: 14px 40px;">
+        <span id="btnIcon">▶</span> <span id="btnText">تشغيل الأغنية</span>
       </button>
     </div>
 
-    <!-- معرض الصور الأربعة -->
-    <h3 class="section-label">أجمل الذكريات 📸</h3>
+    <!-- معرض الصور -->
+    <h2 class="section-title gold-text">أجمل الذكريات 📸</h2>
     <div class="gallery-grid">
-      <!-- صورة 1 -->
-      <div class="photo-frame glass-panel">
-        <img src="photo1.jpg" alt="زهراء 1" onerror="handleImageError(this, 1)">
+      <div class="photo-card luxury-glass">
+        <img src="photo1.jpg" alt="زهراء" onerror="imgError(this, 1)">
       </div>
-      <!-- صورة 2 -->
-      <div class="photo-frame glass-panel">
-        <img src="photo2.jpg" alt="زهراء 2" onerror="handleImageError(this, 2)">
+      <div class="photo-card luxury-glass">
+        <img src="photo2.jpg" alt="زهراء" onerror="imgError(this, 2)">
       </div>
-      <!-- صورة 3 -->
-      <div class="photo-frame glass-panel">
-        <img src="photo3.jpg" alt="زهراء 3" onerror="handleImageError(this, 3)">
+      <div class="photo-card luxury-glass">
+        <img src="photo3.jpg" alt="زهراء" onerror="imgError(this, 3)">
       </div>
-      <!-- صورة 4 -->
-      <div class="photo-frame glass-panel">
-        <img src="photo4.jpg" alt="زهراء 4" onerror="handleImageError(this, 4)">
+      <div class="photo-card luxury-glass">
+        <img src="photo4.jpg" alt="زهراء" onerror="imgError(this, 4)">
       </div>
     </div>
   </div>
 
-  <!-- أيقونة ونافذة الشعر العائمة -->
-  <div class="poem-floating-trigger" id="poem-trigger" style="display: none;" onclick="togglePoemModal()">💌</div>
-  
-  <div class="modal-overlay" id="modal-overlay" onclick="togglePoemModal()"></div>
-  <div class="poem-glass-modal glass-panel" id="poem-modal">
-    <div class="poem-content">
-      یا مُنيةَ الرُّوحِ يا زهراءُ يا أملي
-      يا زهرةَ الحُبِّ في روضي وفي مُقلي
-      
-      أسلمتُ قلبي لعينيكِ التي سحرتْ
-      فأنتِ نبضي، وأنتِ السِّحرُ في غزلي
-      
-      إن غبتِ عنّي تغيبُ الشّمسُ عن فلكي
-      وإن حضرتِ، يذوبُ الكَونُ في خجلي ❤️
+  <!-- أيقونة الرسالة والشعر -->
+  <div class="floating-poem-btn" id="poemBtn" style="display:none;" onclick="togglePoem()">💌</div>
+
+  <div class="modal-backdrop" id="backdrop" onclick="togglePoem()"></div>
+  <div class="poem-box luxury-glass" id="poemModal">
+    <div class="poem-text">
+      يا مُنيةَ الرُّوحِ يا زهراءُ يا أملي<br>
+      يا زهرةَ الحُبِّ في روضي وفي مُقلي<br><br>
+      أسلمتُ قلبي لعينيكِ التي سحرتْ<br>
+      فأنتِ نبضي، وأنتِ السِّحرُ في غزلي ❤️
     </div>
-    <button class="close-poem-btn" onclick="togglePoemModal()">إغلاق</button>
+    <button class="luxury-btn" style="width:auto; padding: 10px 35px; font-size:1rem;" onclick="togglePoem()">إغلاق</button>
   </div>
 
-  <!-- ==================== البرمجيات والذكاء التفاعلي ==================== -->
   <script>
-    /* ==========================================
-       1. محرك القلوب والجزيئات الذهبية الحية
-    ========================================== */
-    const canvas = document.getElementById('particles-canvas');
+    /* 1. محرك خلفية القلوب والذهب */
+    const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
-    let particlesArray = [];
+    let particles = [];
 
-    function resizeCanvas() {
+    function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
+    window.addEventListener('resize', resize);
+    resize();
 
     class Particle {
-      constructor() {
-        this.reset();
-      }
+      constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * canvas.width;
-        this.y = canvas.height + Math.random() * 100;
-        this.size = Math.random() * 15 + 8;
-        this.speedY = Math.random() * 1.5 + 0.5;
-        this.speedX = Math.sin(this.y) * 0.5;
+        this.y = canvas.height + 20;
+        this.size = Math.random() * 14 + 6;
+        this.speedY = Math.random() * 1.2 + 0.4;
         this.opacity = Math.random() * 0.7 + 0.3;
-        this.type = Math.random() > 0.5 ? 'heart' : 'gold';
+        this.isHeart = Math.random() > 0.4;
       }
       update() {
         this.y -= this.speedY;
-        this.x += Math.sin(this.y * 0.02) * 0.5;
         if (this.y < -20) this.reset();
       }
       draw() {
         ctx.save();
         ctx.globalAlpha = this.opacity;
-        if (this.type === 'heart') {
+        if (this.isHeart) {
           ctx.fillStyle = '#ff2a6d';
           ctx.font = `${this.size}px serif`;
-          ctx.fillText('❤', this.x, this.y);
+          ctx.fillText('♥', this.x, this.y);
         } else {
-          ctx.fillStyle = '#f39c12';
+          ctx.fillStyle = '#d4af37';
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size / 4, 0, Math.PI * 2);
           ctx.fill();
@@ -741,102 +564,80 @@
       }
     }
 
-    function initParticles() {
-      particlesArray = [];
-      for (let i = 0; i < 45; i++) {
-        particlesArray.push(new Particle());
-      }
-    }
-
-    function animateParticles() {
+    for (let i = 0; i < 50; i++) particles.push(new Particle());
+    function loop() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particlesArray.forEach(p => {
-        p.update();
-        p.draw();
-      });
-      requestAnimationFrame(animateParticles);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(loop);
     }
-    initParticles();
-    animateParticles();
+    loop();
 
-    /* ==========================================
-       2. نظام كلمة المرور والتنقل
-    ========================================== */
-    function verifyPassword() {
-      const input = document.getElementById('passcode').value;
-      const errorMsg = document.getElementById('error-message');
-      
-      if (input === 'ZAHRAbnty') {
-        document.getElementById('auth-screen').classList.add('screen-hidden');
-        document.getElementById('welcome-screen').classList.remove('screen-hidden');
+    /* 2. التحقق من كلمة السر */
+    function checkPassword() {
+      const pass = document.getElementById('passInput').value;
+      if (pass === 'ZAHRAbnty') {
+        document.getElementById('screen-auth').classList.add('screen-hidden');
+        document.getElementById('screen-welcome').classList.remove('screen-hidden');
       } else {
-        errorMsg.textContent = 'الرمز غير صحيح، حاولي مرة أخرى يا أميرتي.';
+        document.getElementById('error-message') || (document.getElementById('errorText').textContent = 'الرمز غير صحيح، حاولي مجدداً يا ملكتي');
       }
     }
 
-    document.getElementById('passcode').addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') verifyPassword();
-    });
-
-    function enterMainRealm() {
-      document.getElementById('welcome-screen').classList.add('screen-hidden');
-      const mainWrapper = document.getElementById('main-wrapper');
-      mainWrapper.classList.add('visible');
-      document.getElementById('poem-trigger').style.display = 'flex';
-      playAudio();
+    function startRealm() {
+      document.getElementById('screen-welcome').classList.add('screen-hidden');
+      document.getElementById('main-realm').classList.add('active');
+      document.getElementById('poemBtn').style.display = 'flex';
+      
+      // تشغيل الصوت بعد الضغط مباشرة
+      const audio = document.getElementById('mainAudio');
+      audio.play().catch(e => console.log('Autoplay prevented'));
     }
 
-    /* ==========================================
-       3. مشغل الأسطوانة والصوتيات
-    ========================================== */
-    const audio = document.getElementById('audio-player');
+    /* 3. الحل النهائي لمعالجة خطأ زر التشغيل والعصا */
+    const audio = document.getElementById('mainAudio');
     const vinyl = document.getElementById('vinyl');
     const tonearm = document.getElementById('tonearm');
-    const playIcon = document.getElementById('playIcon');
-    const btnLabel = document.getElementById('btnLabel');
+    const btnIcon = document.getElementById('btnIcon');
+    const btnText = document.getElementById('btnText');
 
-    function toggleAudio() {
-      if (audio.paused) playAudio();
-      else pauseAudio();
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
     }
 
-    function playAudio() {
-      audio.play().then(() => {
-        vinyl.classList.add('spinning');
-        tonearm.classList.add('active');
-        playIcon.textContent = '⏸';
-        btnLabel.textContent = 'إيقاف مؤقت';
-      }).catch(err => console.log('بانتظار تفاعل المستخدم مع الصفحة'));
-    }
+    // ربط الحركة بالحدث الحقيقي للصوت لمنع أي تعارض
+    audio.addEventListener('play', () => {
+      vinyl.classList.add('spinning');
+      tonearm.classList.add('active');
+      btnIcon.textContent = '⏸';
+      btnText.textContent = 'إيقاف مؤقت';
+    });
 
-    function pauseAudio() {
-      audio.pause();
+    audio.addEventListener('pause', () => {
       vinyl.classList.remove('spinning');
       tonearm.classList.remove('active');
-      playIcon.textContent = '▶';
-      btnLabel.textContent = 'تشغيل الأغنية';
-    }
+      btnIcon.textContent = '▶';
+      btnText.textContent = 'تشغيل الأغنية';
+    });
 
-    /* ==========================================
-       4. معالج الصور المفقودة
-    ========================================== */
-    function handleImageError(imgElement, index) {
-      const parentFrame = imgElement.parentElement;
-      parentFrame.innerHTML = `
-        <div class="img-fallback">
-          <span>👑</span>
-          <div>صورة ${index}</div>
-          <small style="opacity:0.6; font-size:0.75rem;">تأكد من رفع photo${index}.jpg</small>
+    /* 4. معالج عدم وجود صورة */
+    function imgError(img, num) {
+      img.parentElement.innerHTML = `
+        <div class="photo-placeholder">
+          <span style="font-size: 2rem;">👑</span>
+          <div>صورة ${num}</div>
+          <small style="opacity:0.5;">photo${num}.jpg</small>
         </div>
       `;
     }
 
-    /* ==========================================
-       5. نافذة الشعر التفاعلية
-    ========================================== */
-    function togglePoemModal() {
-      document.getElementById('poem-modal').classList.toggle('active');
-      document.getElementById('modal-overlay').classList.toggle('active');
+    /* 5. النافذة المنبثقة للشعر */
+    function togglePoem() {
+      document.getElementById('backdrop').classList.toggle('open');
+      document.getElementById('poemModal').classList.toggle('open');
     }
   </script>
 </body>
