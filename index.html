@@ -5,80 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الملكة زهراء 👑</title>
   
-  <!-- الخطوط الملكية -->
+  <!-- خطوط ملكية وكلاسيكية حديثة -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --gold-royal: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
-      --gold-pure: #d4af37;
-      --gold-glow: rgba(212, 175, 55, 0.5);
-      --ruby-dark: #1a030b;
-      --glass-dark: rgba(12, 5, 9, 0.75);
-      --glass-border: rgba(212, 175, 55, 0.35);
+      --bg-deep: #050505;
+      --surface-dark: #111111;
+      --gold-premium: #C5A059;
+      --gold-muted: #8A733F;
+      --text-main: #EAEAEA;
+      --text-muted: #888888;
+      --border-thin: rgba(197, 160, 89, 0.15);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Tajawal', sans-serif;
       user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: #030104;
-      color: #fff;
+      background-color: var(--bg-deep);
+      background-image: radial-gradient(circle at 50% 0%, #1a1712 0%, var(--bg-deep) 70%);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow-x: hidden;
-      position: relative;
     }
 
-    /* خلفية الفخامة التفاعلية */
-    .bg-gradient {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 50% 20%, #2e0817 0%, #0d0207 50%, #020003 100%);
-      z-index: -2;
+    /* العناوين الكلاسيكية */
+    h1, h2, .classic-text {
+      font-family: 'Amiri', serif;
+      font-weight: normal;
     }
 
-    canvas#particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* التأثير الزجاجي الفاخر */
-    .luxury-glass {
-      background: var(--glass-dark);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border-radius: 30px;
-      border: 1.5px solid var(--glass-border);
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 
-                  inset 0 1px 1px rgba(255, 245, 183, 0.3),
-                  0 0 30px rgba(212, 175, 55, 0.15);
-      position: relative;
-    }
-
-    /* النص الذهبي المضيء */
-    .gold-text {
-      background: var(--gold-royal);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    .gold-accent {
+      color: var(--gold-premium);
     }
 
     /* الشاشات */
@@ -92,515 +62,480 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      z-index: 100;
-      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+      transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
       padding: 20px;
     }
 
     .screen-hidden {
       opacity: 0;
       visibility: hidden;
-      transform: scale(0.95);
       pointer-events: none;
     }
 
-    /* 1. قفل المملكة السري */
-    .auth-card {
-      width: 100%;
-      max-width: 400px;
-      padding: 50px 35px;
+    /* شاشة الدخول الفاخرة */
+    .auth-container {
       text-align: center;
-    }
-
-    .crown-glow {
-      font-size: 4rem;
-      margin-bottom: 15px;
-      filter: drop-shadow(0 0 20px var(--gold-pure));
-      animation: crownFloat 3s infinite ease-in-out;
-    }
-
-    @keyframes crownFloat {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .auth-card h2 {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-    }
-
-    .pass-input {
       width: 100%;
-      padding: 16px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border: 1.5px solid var(--gold-pure);
-      border-radius: 50px;
-      color: #fff;
+      max-width: 350px;
+    }
+
+    .crown-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--gold-premium);
+      opacity: 0.9;
+    }
+
+    .auth-container h2 {
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      letter-spacing: 1px;
+    }
+
+    .input-premium {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--gold-muted);
+      color: var(--text-main);
       font-size: 1.2rem;
       text-align: center;
+      padding: 10px 0;
       outline: none;
-      transition: all 0.4s;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+      transition: all 0.3s ease;
+      font-family: 'Tajawal', sans-serif;
     }
 
-    .pass-input:focus {
-      box-shadow: 0 0 25px var(--gold-glow), inset 0 0 15px rgba(212, 175, 55, 0.3);
+    .input-premium:focus {
+      border-bottom: 1px solid var(--gold-premium);
     }
 
-    .luxury-btn {
-      background: var(--gold-royal);
-      color: #0d0307;
-      font-size: 1.25rem;
-      font-weight: 900;
-      padding: 16px 45px;
-      border: none;
-      border-radius: 50px;
+    .input-premium::placeholder {
+      color: #444;
+    }
+
+    .btn-premium {
+      background: transparent;
+      border: 1px solid var(--gold-muted);
+      color: var(--gold-premium);
+      padding: 12px 40px;
+      font-size: 1.1rem;
+      border-radius: 4px;
       cursor: pointer;
-      margin-top: 25px;
-      width: 100%;
-      box-shadow: 0 10px 30px rgba(179, 135, 40, 0.4);
+      margin-top: 40px;
       transition: all 0.4s ease;
+      font-family: 'Tajawal', sans-serif;
+      letter-spacing: 0.5px;
     }
 
-    .luxury-btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.7);
+    .btn-premium:hover {
+      background: var(--gold-premium);
+      color: var(--bg-deep);
     }
 
-    /* 2. شاشة الترحيب الملكية */
-    .welcome-title {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 3.5rem;
-      text-align: center;
-      margin-bottom: 15px;
-    }
-
-    .welcome-sub {
-      font-size: 1.3rem;
-      color: #e0d0c0;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    /* 3. الواجهة الرئيسية */
+    /* الواجهة الرئيسية */
     #main-realm {
       width: 100%;
-      max-width: 900px;
-      padding: 40px 20px 100px;
+      max-width: 800px;
+      padding: 60px 20px 120px;
       display: none;
       flex-direction: column;
       align-items: center;
-      z-index: 10;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     #main-realm.active {
       display: flex;
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .realm-title {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 3.2rem;
-      margin-bottom: 40px;
+    .header-title {
+      font-size: 2.8rem;
+      margin-bottom: 60px;
+      text-align: center;
     }
 
-    /* مشغل الأسطوانة */
-    .player-deck {
+    /* مشغل الأسطوانة (Turntable) الفاخر */
+    .turntable-base {
+      background: var(--surface-dark);
+      border: 1px solid var(--border-thin);
+      border-radius: 12px;
+      padding: 30px;
       width: 100%;
-      max-width: 450px;
-      padding: 40px 25px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 50px;
-    }
-
-    .vinyl-stage {
+      max-width: 400px;
       position: relative;
-      width: 290px;
-      height: 290px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 35px;
-    }
-
-    .vinyl-disc {
-      width: 270px;
-      height: 270px;
-      border-radius: 50%;
-      background: repeating-radial-gradient(#111, #111 3px, #1a1a1a 4px, #111 5px);
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), 0 0 0 6px rgba(212, 175, 55, 0.2);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: spinRecord 4s linear infinite paused;
-    }
-
-    .vinyl-disc.spinning {
-      animation-play-state: running;
-    }
-
-    @keyframes spinRecord {
-      100% { transform: rotate(360deg); }
-    }
-
-    .vinyl-core {
-      width: 95px;
-      height: 95px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #800a22, #33000b);
-      border: 3px solid var(--gold-pure);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+      margin-bottom: 60px;
       display: flex;
       flex-direction: column;
+      align-items: center;
+    }
+
+    .turntable-deck {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: inset 0 0 10px #000;
-    }
-
-    .vinyl-core span {
-      font-family: 'Aref Ruqaa', serif;
-      color: #fff;
-      font-size: 1.2rem;
-    }
-
-    /* عصا الأسطوانة الدقيقة */
-    .tonearm-box {
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      width: 80px;
-      height: 170px;
-      pointer-events: none;
-      z-index: 15;
-      transform-origin: 25px 25px;
-      transform: rotate(-32deg);
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .tonearm-box.active {
-      transform: rotate(4deg); /* تستقر تماماً على الأسطوانة */
-    }
-
-    .tonearm-base {
-      width: 50px;
-      height: 50px;
-      background: var(--gold-royal);
-      border-radius: 50%;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-    }
-
-    .tonearm-arm {
-      width: 6px;
-      height: 135px;
-      background: linear-gradient(to right, #e6c875, #ffffff, #996e19);
-      position: absolute;
-      top: 20px;
-      left: 22px;
-      border-radius: 3px;
-    }
-
-    .tonearm-head {
-      width: 18px;
-      height: 28px;
-      background: #222;
-      border: 1px solid var(--gold-pure);
-      position: absolute;
-      bottom: -8px;
-      left: 16px;
-      border-radius: 3px;
-    }
-
-    /* معرض الصور */
-    .section-title {
-      font-family: 'Aref Ruqaa', serif;
-      font-size: 2.3rem;
       margin-bottom: 30px;
+      border-radius: 50%;
+      background: #0a0a0a;
+      box-shadow: inset 0 0 20px rgba(0,0,0,1);
+    }
+
+    /* الأسطوانة */
+    .vinyl-record {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #111 20%, #1a1a1a 50%, #111 80%);
+      box-shadow: 0 0 0 2px #000, 0 5px 15px rgba(0,0,0,0.5);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* خطوط الأسطوانة */
+      background-image: repeating-radial-gradient(
+        #111 0, 
+        #111 2px, 
+        #181818 3px, 
+        #111 4px
+      );
+      transition: transform 0.1s linear;
+    }
+
+    .vinyl-label {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #4a1515; /* لون خمري كلاسيكي */
+      border: 2px solid var(--gold-premium);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .vinyl-label span {
+      font-family: 'Amiri', serif;
+      color: var(--gold-premium);
+      font-size: 1.1rem;
+    }
+
+    .vinyl-hole {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #000;
+      border-radius: 50%;
+      border: 1px solid #333;
+    }
+
+    /* عصا التشغيل (Tonearm) المعالجة هندسياً */
+    .tonearm-container {
+      position: absolute;
+      top: 15px;
+      right: 15px; /* ثابتة على اليمين بغض النظر عن اتجاه النص */
+      width: 120px;
+      height: 160px;
+      z-index: 5;
+      /* النقطة الدقيقة للدوران */
+      transform-origin: 25px 25px;
+      transform: rotate(-20deg); /* وضع السكون (إيقاف) */
+      transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+      pointer-events: none;
+    }
+
+    /* حالة التشغيل (الذراع تتحرك نحو الأسطوانة) */
+    .tonearm-container.playing {
+      transform: rotate(22deg);
+    }
+
+    .tonearm-pivot {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, #ddd, #888);
+      border-radius: 50%;
+      border: 2px solid #222;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    }
+
+    .tonearm-rod {
+      position: absolute;
+      top: 25px;
+      right: 22px;
+      width: 6px;
+      height: 130px;
+      background: linear-gradient(to right, #aaa, #fff, #888);
+      border-radius: 3px;
+      box-shadow: -2px 5px 5px rgba(0,0,0,0.5);
+    }
+
+    .tonearm-headshell {
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+      width: 20px;
+      height: 35px;
+      background: #111;
+      border: 1px solid #333;
+      border-radius: 4px;
+      transform: rotate(-15deg);
+    }
+
+    /* معرض الصور الكلاسيكي */
+    .gallery-title {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
     }
 
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 15px;
       width: 100%;
     }
 
-    @media (max-width: 600px) {
-      .gallery-grid { grid-template-columns: 1fr; }
+    .photo-frame {
+      aspect-ratio: 3/4;
+      background: var(--surface-dark);
+      border: 1px solid var(--border-thin);
+      padding: 8px;
+      border-radius: 4px;
+      transition: filter 0.5s ease, border-color 0.5s ease;
+      filter: grayscale(30%);
     }
 
-    .photo-card {
-      padding: 10px;
-      border-radius: 20px;
-      aspect-ratio: 4/5;
-      overflow: hidden;
-      transition: all 0.5s ease;
+    .photo-frame:hover {
+      filter: grayscale(0%);
+      border-color: var(--gold-premium);
     }
 
-    .photo-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 35px var(--gold-glow);
-    }
-
-    .photo-card img {
+    .photo-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 14px;
       display: block;
     }
 
-    .photo-placeholder {
+    .placeholder-box {
       width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px dashed var(--gold-pure);
-      border-radius: 14px;
-      color: var(--gold-pure);
+      background: #0a0a0a;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-family: 'Tajawal', sans-serif;
     }
 
-    /* زر الرسالة العائم والنافذة */
-    .floating-poem-btn {
+    /* زر الرسالة المنبثق */
+    .message-trigger {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 65px;
-      height: 65px;
+      bottom: 40px;
+      right: 40px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: var(--glass-dark);
-      border: 1.5px solid var(--gold-pure);
+      background: transparent;
+      border: 1px solid var(--gold-premium);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.8rem;
       cursor: pointer;
-      box-shadow: 0 10px 25px var(--gold-glow);
-      z-index: 99;
-      transition: all 0.4s;
+      z-index: 50;
+      transition: all 0.3s ease;
+      background-color: rgba(5,5,5,0.8);
+      backdrop-filter: blur(5px);
     }
 
-    .floating-poem-btn:hover {
-      transform: scale(1.15) rotate(15deg);
+    .message-trigger:hover {
+      background: var(--gold-premium);
     }
 
-    .modal-backdrop {
+    .message-trigger svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gold-premium);
+      transition: fill 0.3s ease;
+    }
+
+    .message-trigger:hover svg {
+      fill: var(--bg-deep);
+    }
+
+    /* النافذة المنبثقة (Modal) */
+    .modal-overlay {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9);
       backdrop-filter: blur(10px);
-      z-index: 1000;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.4s;
+      transition: all 0.5s ease;
     }
 
-    .modal-backdrop.open {
+    .modal-overlay.active {
       opacity: 1;
       visibility: visible;
     }
 
-    .poem-box {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      width: 90%;
-      max-width: 500px;
-      padding: 40px 30px;
+    .classic-poem {
       text-align: center;
-      z-index: 1001;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      padding: 40px;
+      max-width: 500px;
+      border: 1px solid var(--border-thin);
+      background: var(--surface-dark);
+      border-radius: 8px;
+      transform: translateY(20px);
+      transition: transform 0.5s ease;
     }
 
-    .poem-box.open {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, -50%) scale(1);
+    .modal-overlay.active .classic-poem {
+      transform: translateY(0);
     }
 
-    .poem-text {
-      font-family: 'Amiri', serif;
+    .poem-lines {
       font-size: 1.6rem;
-      line-height: 2.2;
-      color: #fff;
-      margin-bottom: 25px;
+      line-height: 2.4;
+      color: var(--text-main);
+      margin-bottom: 30px;
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-gradient"></div>
-  <canvas id="particles"></canvas>
-
-  <!-- 1. شاشة الرمز السري -->
-  <div id="screen-auth" class="screen">
-    <div class="auth-card luxury-glass">
-      <div class="crown-glow">👑</div>
-      <h2 class="gold-text">مملكة زهراء</h2>
-      <input type="password" id="passInput" class="pass-input" placeholder="أدخلي كلمة السر">
-      <div id="errorText" style="color:#ff4757; margin-top:12px; font-size:0.9rem; min-height:20px;"></div>
-      <button class="luxury-btn" onclick="checkPassword()">دخول للمملكة</button>
+  <!-- شاشة الدخول -->
+  <div id="auth-screen" class="screen">
+    <div class="auth-container">
+      <div class="crown-icon classic-text">♛</div>
+      <h2 class="classic-text">مملكة زهراء</h2>
+      <input type="password" id="passInput" class="input-premium" placeholder="كلمة المرور">
+      <div id="errorMsg" style="color:#a83232; margin-top:15px; font-size:0.9rem; min-height:20px;"></div>
+      <button class="btn-premium" onclick="authenticate()">دخول</button>
     </div>
   </div>
 
-  <!-- 2. شاشة الترحيب -->
-  <div id="screen-welcome" class="screen screen-hidden">
-    <h1 class="welcome-title gold-text">أهلاً بكِ في عوالمكِ الفاخرة</h1>
-    <p class="welcome-sub">صُممت كل التفاصيل بعناية لأجلكِ يا ملكتي ❤️</p>
-    <button class="luxury-btn" style="width:auto; padding: 18px 60px;" onclick="startRealm()">افتحي المملكة 👑</button>
-  </div>
-
-  <!-- 3. الواجهة الرئيسية -->
+  <!-- الواجهة الرئيسية -->
   <div id="main-realm">
-    <h1 class="realm-title gold-text">ملكتي زهراء ✨</h1>
+    <h1 class="header-title classic-text gold-accent">صاحبة الجلالة، زهراء</h1>
 
-    <!-- مشغل الأسطوانة -->
-    <div class="player-deck luxury-glass">
-      <div class="vinyl-stage">
-        <div class="tonearm-box" id="tonearm">
-          <div class="tonearm-base"></div>
-          <div class="tonearm-arm"></div>
-          <div class="tonearm-head"></div>
+    <!-- مشغل الأسطوانة الكلاسيكي الفاخر -->
+    <div class="turntable-base">
+      <div class="turntable-deck">
+        
+        <!-- الذراع (Tonearm) -->
+        <div class="tonearm-container" id="tonearm">
+          <div class="tonearm-pivot"></div>
+          <div class="tonearm-rod"></div>
+          <div class="tonearm-headshell"></div>
         </div>
-        <div class="vinyl-disc" id="vinyl">
-          <div class="vinyl-core">
-            <span>زهراء</span>
+
+        <!-- الأسطوانة (Vinyl) -->
+        <div class="vinyl-record" id="vinyl">
+          <div class="vinyl-label">
+            <span class="classic-text">زهراء</span>
           </div>
+          <div class="vinyl-hole"></div>
         </div>
+        
       </div>
 
-      <!-- الصوت -->
+      <!-- ملف الصوت -->
       <audio id="mainAudio" src="song.mp3" loop></audio>
 
-      <!-- زر التشغيل -->
-      <button class="luxury-btn" id="playBtn" onclick="togglePlay()" style="width: auto; padding: 14px 40px;">
-        <span id="btnIcon">▶</span> <span id="btnText">تشغيل الأغنية</span>
+      <!-- زر التشغيل العصري -->
+      <button class="btn-premium" id="playBtn" style="margin-top: 0;" onclick="toggleAudio()">
+        تشغيل الموسيقى
       </button>
     </div>
 
-    <!-- معرض الصور -->
-    <h2 class="section-title gold-text">أجمل الذكريات 📸</h2>
+    <!-- المعرض -->
+    <h2 class="gallery-title classic-text">ذكريات خالدة</h2>
     <div class="gallery-grid">
-      <div class="photo-card luxury-glass">
-        <img src="photo1.jpg" alt="زهراء" onerror="imgError(this, 1)">
+      <div class="photo-frame">
+        <img src="photo1.jpg" onerror="this.outerHTML='<div class=\\'placeholder-box\\'>صورة 1<br><span style=\\'font-size:0.7rem; color:#666;\\'>photo1.jpg</span></div>'">
       </div>
-      <div class="photo-card luxury-glass">
-        <img src="photo2.jpg" alt="زهراء" onerror="imgError(this, 2)">
+      <div class="photo-frame">
+        <img src="photo2.jpg" onerror="this.outerHTML='<div class=\\'placeholder-box\\'>صورة 2<br><span style=\\'font-size:0.7rem; color:#666;\\'>photo2.jpg</span></div>'">
       </div>
-      <div class="photo-card luxury-glass">
-        <img src="photo3.jpg" alt="زهراء" onerror="imgError(this, 3)">
+      <div class="photo-frame">
+        <img src="photo3.jpg" onerror="this.outerHTML='<div class=\\'placeholder-box\\'>صورة 3<br><span style=\\'font-size:0.7rem; color:#666;\\'>photo3.jpg</span></div>'">
       </div>
-      <div class="photo-card luxury-glass">
-        <img src="photo4.jpg" alt="زهراء" onerror="imgError(this, 4)">
+      <div class="photo-frame">
+        <img src="photo4.jpg" onerror="this.outerHTML='<div class=\\'placeholder-box\\'>صورة 4<br><span style=\\'font-size:0.7rem; color:#666;\\'>photo4.jpg</span></div>'">
       </div>
     </div>
   </div>
 
-  <!-- أيقونة الرسالة والشعر -->
-  <div class="floating-poem-btn" id="poemBtn" style="display:none;" onclick="togglePoem()">💌</div>
+  <!-- زر الرسالة (أيقونة رسالة بسيطة وفاخرة) -->
+  <div class="message-trigger" id="msgBtn" style="display:none;" onclick="toggleMessage()">
+    <svg viewBox="0 0 24 24">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+  </div>
 
-  <div class="modal-backdrop" id="backdrop" onclick="togglePoem()"></div>
-  <div class="poem-box luxury-glass" id="poemModal">
-    <div class="poem-text">
-      يا مُنيةَ الرُّوحِ يا زهراءُ يا أملي<br>
-      يا زهرةَ الحُبِّ في روضي وفي مُقلي<br><br>
-      أسلمتُ قلبي لعينيكِ التي سحرتْ<br>
-      فأنتِ نبضي، وأنتِ السِّحرُ في غزلي ❤️
+  <!-- نافذة الشعر الكلاسيكي -->
+  <div class="modal-overlay" id="messageModal" onclick="toggleMessage()">
+    <div class="classic-poem" onclick="event.stopPropagation()">
+      <div class="crown-icon classic-text" style="font-size: 2rem;">♛</div>
+      <div class="poem-lines classic-text">
+        يا مُنيةَ الرُّوحِ يا زهراءُ يا أملي<br>
+        يا زهرةَ الحُبِّ في روضي وفي مُقلي<br><br>
+        أسلمتُ قلبي لعينيكِ التي سحرتْ<br>
+        فأنتِ نبضي، وأنتِ السِّحرُ في غزلي
+      </div>
+      <button class="btn-premium" style="margin-top: 10px; padding: 8px 30px; font-size: 1rem;" onclick="toggleMessage()">إغلاق</button>
     </div>
-    <button class="luxury-btn" style="width:auto; padding: 10px 35px; font-size:1rem;" onclick="togglePoem()">إغلاق</button>
   </div>
 
   <script>
-    /* 1. محرك خلفية القلوب والذهب */
-    const canvas = document.getElementById('particles');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    class Particle {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + 20;
-        this.size = Math.random() * 14 + 6;
-        this.speedY = Math.random() * 1.2 + 0.4;
-        this.opacity = Math.random() * 0.7 + 0.3;
-        this.isHeart = Math.random() > 0.4;
-      }
-      update() {
-        this.y -= this.speedY;
-        if (this.y < -20) this.reset();
-      }
-      draw() {
-        ctx.save();
-        ctx.globalAlpha = this.opacity;
-        if (this.isHeart) {
-          ctx.fillStyle = '#ff2a6d';
-          ctx.font = `${this.size}px serif`;
-          ctx.fillText('♥', this.x, this.y);
-        } else {
-          ctx.fillStyle = '#d4af37';
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size / 4, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        ctx.restore();
-      }
-    }
-
-    for (let i = 0; i < 50; i++) particles.push(new Particle());
-    function loop() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      requestAnimationFrame(loop);
-    }
-    loop();
-
-    /* 2. التحقق من كلمة السر */
-    function checkPassword() {
+    // 1. نظام الدخول
+    function authenticate() {
       const pass = document.getElementById('passInput').value;
       if (pass === 'ZAHRAbnty') {
-        document.getElementById('screen-auth').classList.add('screen-hidden');
-        document.getElementById('screen-welcome').classList.remove('screen-hidden');
+        document.getElementById('auth-screen').classList.add('screen-hidden');
+        setTimeout(() => {
+          document.getElementById('main-realm').classList.add('active');
+          document.getElementById('msgBtn').style.display = 'flex';
+        }, 800); // تأخير بسيط لدخول دراماتيكي
       } else {
-        document.getElementById('error-message') || (document.getElementById('errorText').textContent = 'الرمز غير صحيح، حاولي مجدداً يا ملكتي');
+        document.getElementById('errorMsg').textContent = 'الرمز غير صحيح';
       }
     }
 
-    function startRealm() {
-      document.getElementById('screen-welcome').classList.add('screen-hidden');
-      document.getElementById('main-realm').classList.add('active');
-      document.getElementById('poemBtn').style.display = 'flex';
-      
-      // تشغيل الصوت بعد الضغط مباشرة
-      const audio = document.getElementById('mainAudio');
-      audio.play().catch(e => console.log('Autoplay prevented'));
-    }
-
-    /* 3. الحل النهائي لمعالجة خطأ زر التشغيل والعصا */
+    // 2. منطق المشغل الدقيق (لا يوجد تعارض بعد الآن)
     const audio = document.getElementById('mainAudio');
     const vinyl = document.getElementById('vinyl');
     const tonearm = document.getElementById('tonearm');
-    const btnIcon = document.getElementById('btnIcon');
-    const btnText = document.getElementById('btnText');
+    const playBtn = document.getElementById('playBtn');
+    
+    let spinAnimation;
+    let rotationAngle = 0;
 
-    function togglePlay() {
+    // دالة لتدوير الأسطوانة بشكل ناعم باستخدام requestAnimationFrame
+    function rotateVinyl() {
+      rotationAngle += 1; // سرعة الدوران
+      vinyl.style.transform = `rotate(${rotationAngle}deg)`;
+      spinAnimation = requestAnimationFrame(rotateVinyl);
+    }
+
+    function toggleAudio() {
       if (audio.paused) {
         audio.play();
       } else {
@@ -608,36 +543,34 @@
       }
     }
 
-    // ربط الحركة بالحدث الحقيقي للصوت لمنع أي تعارض
+    // ربط الحركة بالصوت مباشرة لضمان عدم التعارض
     audio.addEventListener('play', () => {
-      vinyl.classList.add('spinning');
-      tonearm.classList.add('active');
-      btnIcon.textContent = '⏸';
-      btnText.textContent = 'إيقاف مؤقت';
+      tonearm.classList.add('playing');
+      playBtn.textContent = 'إيقاف الموسيقى';
+      playBtn.style.color = '#fff';
+      
+      // نبدأ الدوران بعد أن تصل العصا (تأخير بسيط يتوافق مع حركة CSS)
+      setTimeout(() => {
+        if(!audio.paused) {
+           cancelAnimationFrame(spinAnimation);
+           rotateVinyl();
+        }
+      }, 500); 
     });
 
     audio.addEventListener('pause', () => {
-      vinyl.classList.remove('spinning');
-      tonearm.classList.remove('active');
-      btnIcon.textContent = '▶';
-      btnText.textContent = 'تشغيل الأغنية';
+      tonearm.classList.remove('playing');
+      playBtn.textContent = 'تشغيل الموسيقى';
+      playBtn.style.color = 'var(--gold-premium)';
+      
+      // إيقاف الدوران فوراً
+      cancelAnimationFrame(spinAnimation);
     });
 
-    /* 4. معالج عدم وجود صورة */
-    function imgError(img, num) {
-      img.parentElement.innerHTML = `
-        <div class="photo-placeholder">
-          <span style="font-size: 2rem;">👑</span>
-          <div>صورة ${num}</div>
-          <small style="opacity:0.5;">photo${num}.jpg</small>
-        </div>
-      `;
-    }
-
-    /* 5. النافذة المنبثقة للشعر */
-    function togglePoem() {
-      document.getElementById('backdrop').classList.toggle('open');
-      document.getElementById('poemModal').classList.toggle('open');
+    // 3. النافذة المنبثقة
+    function toggleMessage() {
+      const modal = document.getElementById('messageModal');
+      modal.classList.toggle('active');
     }
   </script>
 </body>
